@@ -4,7 +4,6 @@ export class IngestEventDto {
   @IsString()
   @IsNotEmpty()
   tenantId: string;
-
   @IsString()
   @IsNotEmpty()
   eventType: string;

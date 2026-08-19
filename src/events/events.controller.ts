@@ -12,8 +12,8 @@ export class EventsController {
 
   @Post()
   @HttpCode(HttpStatus.ACCEPTED)
-  ingestEvent(@Body() dto: IngestEventDto): { status: string } {
-    if (this.rateLimiterService.isRateLimited(dto.tenantId)) {
+  async ingestEvent(@Body() dto: IngestEventDto): Promise<{ status: string }> {
+    if (await this.rateLimiterService.isRateLimited(dto.tenantId)) {
       throw new HttpException('Rate limit exceeded for tenant', HttpStatus.TOO_MANY_REQUESTS);
     }
 
