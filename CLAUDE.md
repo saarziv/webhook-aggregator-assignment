@@ -24,11 +24,13 @@ and exposes analytics via GET /v1/analytics/:tenantId.
 ## Architecture
 
 ### Module Structure
+```
 src/
 ├── events/           # POST /v1/events — controller, rate limiter, queue producer
 ├── processor/        # BullMQ consumer — processes queued events
 ├── analytics/        # GET /v1/analytics/:tenantId
 └── store/            # shared event store (processor writes, analytics reads)
+```
 
 ### Infrastructure
 - Redis via docker-compose (redis:7-alpine, port 6379)
