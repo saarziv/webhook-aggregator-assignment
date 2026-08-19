@@ -72,3 +72,4 @@ Node.js, TypeScript, NestJS, Redis, BullMQ
 - Error handling: every async function has try/catch, descriptive error messages
 - No `any` — use `unknown` and narrow
 - File size: consider splitting above ~300 lines, but only if it improves clarity
+- only test code where your logic can be wrong. If the only way the test fails is if Redis/DB/Other 3rd pt itself is broken, it's not worth writing.

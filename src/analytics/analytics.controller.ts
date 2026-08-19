@@ -6,7 +6,7 @@ export class AnalyticsController {
   constructor(private readonly analyticsService: AnalyticsService) {}
 
   @Get(':tenantId')
-  getAnalytics(@Param('tenantId') tenantId: string): TenantAnalytics {
+  async getAnalytics(@Param('tenantId') tenantId: string): Promise<TenantAnalytics> {
     return this.analyticsService.getAnalytics(tenantId);
   }
 }
