@@ -27,9 +27,9 @@ and exposes analytics via GET /v1/analytics/:tenantId.
 ```
 src/
 ├── events/           # POST /v1/events — controller, rate limiter, queue producer
-├── processor/        # BullMQ consumer — processes queued events
+├── processor/        # BullMQ consumer — processes queued events, writes to Redis
 ├── analytics/        # GET /v1/analytics/:tenantId
-└── store/            # shared event store (processor writes, analytics reads)
+└── redis/            # global Redis client (ioredis)
 ```
 
 ### Infrastructure

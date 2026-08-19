@@ -4,7 +4,6 @@ import { BullModule } from '@nestjs/bullmq';
 import { EventsModule } from './events/events.module';
 import { ProcessorModule } from './processor/processor.module';
 import { AnalyticsModule } from './analytics/analytics.module';
-import { StoreModule } from './store/store.module';
 import { RedisModule } from './redis/redis.module';
 
 @Module({
@@ -25,7 +24,6 @@ import { RedisModule } from './redis/redis.module';
     EventsModule,
     ProcessorModule,
     AnalyticsModule,
-    StoreModule,
   ],
 })
 export class AppModule {}
