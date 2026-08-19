@@ -42,7 +42,7 @@ src/
 - [x] Scaffolding
 - [x] Walking skeleton
 - [X] Rate limiter
-- [ ] BullMQ
+- [X] BullMQ
 - [ ] Analytics
 - [ ] Polish
 
