@@ -39,7 +39,7 @@ src/
 - Worker runs in-process (same NestJS instance, not a separate server)
 
 ### Implementation Order
-1. Scaffolding — NestJS, TypeScript strict, Vitest, docker-compose with Redis
+1. Scaffolding — NestJS, TypeScript strict, docker-compose with Redis
 2. POST /v1/events — controller + validation
 3. Rate limiter — sliding window + tests
 4. BullMQ — queue producer, processor, store service
@@ -47,7 +47,7 @@ src/
 6. Polish — Dockerfile, README, remaining tests
 
 ## Tech Stack
-Node.js, TypeScript, NestJS, Redis, BullMQ, Vitest
+Node.js, TypeScript, NestJS, Redis, BullMQ
 
 ## Commands
 - Test: `npm test`
@@ -56,7 +56,7 @@ Node.js, TypeScript, NestJS, Redis, BullMQ, Vitest
 
 ## Engineering Standards
 - TypeScript strict mode (`noImplicitAny: true`), no `any` types
-- Vitest unit tests, TDD approach for domain logic
+- Nest js unit tests, TDD approach for domain logic
 - Keep functions pure and decoupled from global server state
 
 ## Prompting
