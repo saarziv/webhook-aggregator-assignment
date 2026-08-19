@@ -38,13 +38,13 @@ src/
 - Rate limiter uses Redis-backed sliding window
 - Worker runs in-process (same NestJS instance, not a separate server)
 
-### Implementation Order
-1. Scaffolding — NestJS, TypeScript strict, docker-compose with Redis
-2. POST /v1/events — controller + validation
-3. Rate limiter — sliding window + tests
-4. BullMQ — queue producer, processor, store service
-5. GET /v1/analytics/:tenantId
-6. Polish — Dockerfile, README, remaining tests
+### Progress
+- [x] Scaffolding
+- [x] Walking skeleton
+- [ ] Rate limiter
+- [ ] BullMQ
+- [ ] Analytics
+- [ ] Polish
 
 ## Tech Stack
 Node.js, TypeScript, NestJS, Redis, BullMQ
