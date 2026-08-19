@@ -41,7 +41,7 @@ src/
 ### Progress
 - [x] Scaffolding
 - [x] Walking skeleton
-- [ ] Rate limiter
+- [X] Rate limiter
 - [ ] BullMQ
 - [ ] Analytics
 - [ ] Polish
