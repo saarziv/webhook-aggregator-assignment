@@ -27,9 +27,9 @@ and exposes analytics via GET /v1/analytics/:tenantId.
 ```
 src/
 ├── events/           # POST /v1/events — controller, rate limiter, queue producer
-├── processor/        # BullMQ consumer — processes queued events
+├── processor/        # BullMQ consumer — processes queued events, writes to Redis
 ├── analytics/        # GET /v1/analytics/:tenantId
-└── store/            # shared event store (processor writes, analytics reads)
+└── redis/            # global Redis client (ioredis)
 ```
 
 ### Infrastructure
@@ -38,13 +38,13 @@ src/
 - Rate limiter uses Redis-backed sliding window
 - Worker runs in-process (same NestJS instance, not a separate server)
 
-### Implementation Order
-1. Scaffolding — NestJS, TypeScript strict, docker-compose with Redis
-2. POST /v1/events — controller + validation
-3. Rate limiter — sliding window + tests
-4. BullMQ — queue producer, processor, store service
-5. GET /v1/analytics/:tenantId
-6. Polish — Dockerfile, README, remaining tests
+### Progress
+- [x] Scaffolding
+- [x] Walking skeleton
+- [X] Rate limiter
+- [X] BullMQ
+- [ ] Analytics
+- [ ] Polish
 
 ## Tech Stack
 Node.js, TypeScript, NestJS, Redis, BullMQ
@@ -72,3 +72,4 @@ Node.js, TypeScript, NestJS, Redis, BullMQ
 - Error handling: every async function has try/catch, descriptive error messages
 - No `any` — use `unknown` and narrow
 - File size: consider splitting above ~300 lines, but only if it improves clarity
+- only test code where your logic can be wrong. If the only way the test fails is if Redis/DB/Other 3rd pt itself is broken, it's not worth writing.
